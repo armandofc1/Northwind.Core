@@ -24,7 +24,12 @@ namespace Northwind.Core.Infra.Context
         public DbSet<Shippers> Shippers { get; set; }
         public DbSet<Suppliers> Suppliers { get; set; }
         public DbSet<Territories> Territories { get; set; }
-        
+
+        public NorthwindContext()
+        {
+            Database.EnsureCreated();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var configuration = new ConfigurationBuilder()
